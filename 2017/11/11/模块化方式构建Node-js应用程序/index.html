@@ -15,6 +15,8 @@
 <meta property="og:site_name" content="codevow&#39;s Blog">
 <meta property="og:description" content="如今，几乎所有的Web服务或集成都是在Node.js运行时上完成的。Node.js是一个具有很多社区支持的灵活平台。我们甚至可以直接从Node.js创建xlsx，docx或pdf文档。所有主流云平台都可以使用Node.js作为其1级语言。   模块化Node.js通过设计，可以使用node_modules结构来实现模块化。所有必需的模块都存储在node_modules目录中，并且我们可以在代码中的">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/nodejs-logo-2.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/mnp4.png">
 <meta property="article:published_time" content="2017-11-10T17:01:59.000Z">
 <meta property="article:modified_time" content="2020-03-20T06:03:56.464Z">
 <meta property="article:author" content="风闲子">
@@ -22,6 +24,7 @@
 <meta property="article:tag" content="模块化">
 <meta property="article:tag" content="应用程序">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/nodejs-logo-2.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -153,7 +156,7 @@
       
             
             <p>如今，几乎所有的Web服务或集成都是在Node.js运行时上完成的。Node.js是一个具有很多社区支持的灵活平台。我们甚至可以直接从Node.js创建xlsx，docx或pdf文档。所有主流云平台都可以使用Node.js作为其1级语言。</p>
-
+<img src="/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/nodejs-logo-2.jpg" class="" title="模块化">
 
 <h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><p>Node.js通过设计，可以使用node_modules结构来实现模块化。所有必需的模块都存储在node_modules目录中，并且我们可以在代码中的任何地方调用这些模块。</p>
 <p>而现在，我们将在应用程序代码中使用这种模块化的方式。我看到的大多数应用程序都包含一个lib文件夹，其中存储了所有的JS文件。这些js文件使用相对路径导入所需区域。</p>
@@ -203,7 +206,7 @@ if (fs.existsSync(&apos;node_modules/@cms&apos;)) {
     &quot;express&quot; : &quot;latest&quot;
   }
 }</code></pre><p>每当你执行npm安装时都会执行该脚本。因此，一旦所有其他节点模块被定义并且依赖关系被安装好了之后，它将创建从@cms文件夹外部到@cms文件夹内部node_modules的链接。所以你对外部@cms文件夹所做的任何更改都将反映到文件夹内部的node_modules。</p>
-
+<img src="/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/mnp4.png" class="" title="npm">
 
 <p>你可以看到我们对@cms安装了符号链接。这不是一个快捷文件，不是在Linux中使用“ln”创建的硬链接。</p>
 <p>在@cms内部，你可以看到我们在外部@cms文件夹中定义的模块。</p>
