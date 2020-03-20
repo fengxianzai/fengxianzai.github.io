@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>前端面试javascript篇 | codevow&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog" />
+  
+  <meta name="description" content="window.onload和document.ready的区别window.onload是在页面中包含图片在内的素有元素全部加载完成； document.ready是文档结构加载完成，但不包含图片，其他媒体文件； 在jQuery中会看到$(function(){})和$(document).ready(function(){})，是在DOM树加载完成之后执行； window.onload是在DOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端面试javascript篇">
+<meta property="og:url" content="http://yoursite.com/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/index.html">
+<meta property="og:site_name" content="codevow&#39;s Blog">
+<meta property="og:description" content="window.onload和document.ready的区别window.onload是在页面中包含图片在内的素有元素全部加载完成； document.ready是文档结构加载完成，但不包含图片，其他媒体文件； 在jQuery中会看到$(function(){})和$(document).ready(function(){})，是在DOM树加载完成之后执行； window.onload是在DOM">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-04-14T03:43:00.000Z">
+<meta property="article:modified_time" content="2020-03-20T07:00:07.836Z">
+<meta property="article:author" content="风闲子">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="事件委托">
+<meta property="article:tag" content="原型">
+<meta property="article:tag" content="原型链">
+<meta property="article:tag" content="闭包">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">codevow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        codevow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="codevow" target="_blank" href="//codevow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/fengxianzai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/fengxianzai">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/fengxianzai">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-前端面试javascript篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      前端面试javascript篇
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/前端面试/">前端面试</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2018-04-14
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="window-onload和document-ready的区别"><a href="#window-onload和document-ready的区别" class="headerlink" title="window.onload和document.ready的区别"></a>window.onload和document.ready的区别</h3><pre><code>window.onload是在页面中包含图片在内的素有元素全部加载完成；
+document.ready是文档结构加载完成，但不包含图片，其他媒体文件；
+在jQuery中会看到$(function(){})和$(document).ready(function(){})，是在DOM树加载完成之后执行；
+window.onload是在DOM树加载完以及所有文件加载完成才执行，因此慢于document.ready。</code></pre><h3 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h3><pre><code>var arr = [&apos;a&apos;,&apos;bb&apos;,&apos;22&apos;,&apos;a&apos;,&apos;yuci&apos;,&apos;haha&apos;,&apos;22&apos;]; </code></pre><p>1.es6的set()方法</p>
+<pre><code>var unique = new Set(arr); 
+console.log(Array.from(unique)); </code></pre><p>2.使用push()</p>
+<pre><code>var arr2 = [];  
+for(var i = 0; i &lt; arr.length; i++) {  
+    (function(i) {  
+        if(arr2.indexOf(arr[i]) == -1) { //不包含某个值则返回-1  
+            arr2.push(arr[i]);  
+        }  
+    }(i))  
+}  
+console.log(arr2);  
+
+//如果当前数组的第i项在当前数组中第一次出现的位置不是i，那么表示第i项是重复的，忽略掉。否则存入结果数组  
+var arr3 = [arr[0]];  
+for(var i = 1; i &lt; arr.length; i++) {  
+    (function(i) {  
+        if(arr.indexOf(arr[i]) == i) {  
+            arr3.push(arr[i]);  
+        }  
+    }(i))  
+}  
+console.log(arr3);  </code></pre><p>3.排序去除相邻重复元素</p>
+<pre><code>var arrSort = arr.sort();  
+var arr4 = [];  
+for(let i = 0; i&lt; arrSort.length; i++) {  
+    if(arrSort[i] != arrSort[i+1]) {  
+        arr4.push(arrSort[i]);  
+    }  
+}  
+console.log(arr4);</code></pre><p>4.使用splice()</p>
+<pre><code>var len = arr.length;  
+for(let i = 0; i &lt; len; i++) {  
+    for(let j = i + 1; j &lt; len; j++) {  
+        if(arr[i] === arr[j]) {  
+            arr.splice(i,1);  
+            len--;  
+            j--;  
+        }  
+    }  
+}  
+console.log(arr); </code></pre><h3 id="事件委托"><a href="#事件委托" class="headerlink" title="事件委托"></a>事件委托</h3><p>得益于事件冒泡，当多个元素有相同的事件，将事件绑定在父元素</p>
+<pre><code>var oUl = document.getElementById(&apos;oul&apos;);  
+oUl.addEventListener(&apos;click&apos;, function(e) {  
+    var e = e||window.event;  
+    var tar = e.target;  
+    if(tar.nodeName === &apos;LI&apos;) {  
+        alert(tar.innerHTML);  
+    }  
+})   </code></pre><p>更详细请看：<a href="http://www.codeceo.com/javascript-event-commission.html" target="_blank" rel="noopener">事件委托</a></p>
+<h3 id="判断变量类型"><a href="#判断变量类型" class="headerlink" title="判断变量类型"></a>判断变量类型</h3><p>typeof()用于判断简单数据；</p>
+<pre><code>判断一个变量是对象还是数组使用instanceof，constructor或Object.prototype.toString.call()；</code></pre><p>更详细请看：<a href="https://blog.csdn.net/yucihent/article/details/79652913" target="_blank" rel="noopener">判断数据类型</a></p>
+<h3 id="同步和异步（简要阐述）"><a href="#同步和异步（简要阐述）" class="headerlink" title="同步和异步（简要阐述）"></a>同步和异步（简要阐述）</h3><pre><code>同步：由于js单线程，同步任务都在主线程上排队执行，前面任务没执行完成，后面的任务会一直等待；
+
+异步：不进入主线程，进入任务队列，等待主线程任务执行完成，开始执行。最基础的异步操作setTimeout和setInterval，等待主线程任务执行完，在开始执行里面的函数；</code></pre><p>更详细请看：<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">js运行机制</a></p>
+<h3 id="返回false的几种情况"><a href="#返回false的几种情况" class="headerlink" title="返回false的几种情况"></a>返回false的几种情况</h3><pre><code>false，null，0，“”，undefined，NaN</code></pre><h3 id="js类型值的区别"><a href="#js类型值的区别" class="headerlink" title="js类型值的区别"></a>js类型值的区别</h3><pre><code>存储地：
+
+简单数据类型：存储在栈中；
+
+引用数据类型：存储在堆中，在栈中存储了指针，指向存储在堆中的地址，解释器会先检索在栈中的地址，从堆中获得实体；
+
+大小：
+
+简单数据类型：大小固定，占用空间小，频繁使用，所以存储在栈中；
+
+引用数据类型：大小不固定，占用空间大；</code></pre><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><pre><code>何为闭包：有权访问另一个作用域中变量的函数
+
+闭包特性：可实现函数外访问函数内变量，外层变量可以不被垃圾回收机制回收
+
+为什么？怎么解决？
+
+for(var i = 0; i &lt; 10; i++) {  
+    setTimeout(function() {  
+        console.log(i);    
+    }, 1000);  
+}  </code></pre><p>输出结果都为10，因为for()循环过程中每次传值，匿名函数并没有执行，相当于执行10次function(){console.log(i);}，循环结束i变为10，所以输出全部为10；</p>
+<p>使用闭包，自执行匿名函数包裹:</p>
+<pre><code>for(var i = 0; i &lt; 10; i++) {  
+    (function(j) {  
+        setTimeout(function() {  
+            console.log(j);    
+        }, 1000);  
+    })(i);  
+} </code></pre><p>外部匿名函数立即执行，把 i 作为参数，赋值给 j ，因为是立即执行，所以每次循环输出不同值。</p>
+<p>引用外层变量不被回收，会相比其他函数占用更高内存，使用不当容易造成内存泄漏。</p>
+<h3 id="this的指向"><a href="#this的指向" class="headerlink" title="this的指向"></a>this的指向</h3><pre><code>全局范围：指向window（严格模式下不存在全局变量，指向undefined）;
+
+普通函数调用：指向window;
+
+对象方法调用：指向最后调用它的对象；
+
+构造函数调用：指向new出来的对象；
+
+显示设置this：call，apply方法显示将this指向第一个参数指明的对象</code></pre><h3 id="new具体做了些什么"><a href="#new具体做了些什么" class="headerlink" title="new具体做了些什么"></a>new具体做了些什么</h3><pre><code>创建一个新对象foo；
+
+并将它的__proto__指向其构造函数的prototype，foo.__proto__ = Foo.prototype;
+
+动态将this指向新对象，Foo.apply(foo，arguments);
+
+执行函数体中的代码；
+
+放回新对象foo;</code></pre><h3 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h3><p>创建一个函数就会为其创建一个prototype属性，指向这个函数的原型对象，原型对象会自动获得constructor属性，指向prototype属性所在函数。</p>
+<pre><code>Function.prototype.a = &quot;a&quot;;    
+Object.prototype.b = &quot;b&quot;;    
+function Person(){}    
+console.log(Person);    //function Person()    
+let p = new Person();    
+console.log(p);         //Person {} 对象    
+console.log(p.a);       //undefined    
+console.log(p.b);       //b 
+
+p.__proto__ === Person.prototype；Person.prototype.constructor === Person</code></pre><p>当调用某种方法或查找某种属性时，首先会在自身调用和查找，如果自身并没有该属性或方法，则会去它的<strong>proto</strong>属性中调用查找，也就是它构造函数的prototype中调用查找，如果构造函数中也没有该属性方法，则会去构造函数的隐式原型中查找，一直到null，就这样形成原型链。</p>
+<p>更多有关原型请看：<a href="https://blog.csdn.net/yucihent/article/details/79424506" target="_blank" rel="noopener">原型和原型链</a></p>
+<h3 id="继承方式"><a href="#继承方式" class="headerlink" title="继承方式"></a>继承方式</h3><p><strong>原型链继承：</strong></p>
+<p>Child()的原型作为Parent()的实例来继承Parent()的方法属性</p>
+<p>因为所有实例都继承原型方法属性，其中一个实例对原型属性值更改后，所有实例调用该属性的值全部更改</p>
+<pre><code>function Parent() {}  
+Parent.prototype.parentSay = function() {  
+    return &apos;i am parent&apos;;  
+}  
+function Child() {}  
+Child.prototype.childSay = function() {  
+    return &apos;i am child&apos;;  
+}  
+Child.prototype = new Parent();  
+var par = new Parent();  
+var kid = new Child();  
+
+console.log(kid.parentSay());           //i am parent </code></pre><p><strong>构造函数继承：</strong></p>
+<p>在子类的构造函数内部通过call或apply来调用父类构造函数</p>
+<p>无法实现函数的复用</p>
+<pre><code>function People() {  
+    this.name = [&apos;zhangsan&apos;,&apos;lisi&apos;,&apos;wangwu&apos;];  
+}  
+function Person() {  
+    People.call(this);  
+}  
+var per1 = new Person();  
+per1.name.push(&apos;zhanliu&apos;);  
+console.log(per1.name);     //[&quot;zhangsan&quot;, &quot;lisi&quot;, &quot;wangwu&quot;, &quot;zhanliu&quot;]  
+
+var per2 = new Person();  
+console.log(per2.name);     //[&quot;zhangsan&quot;, &quot;lisi&quot;, &quot;wangwu&quot;] </code></pre><p><strong>组合继承：</strong></p>
+<p>将原型链继承和构造函数继承结合，最常用的继承模式</p>
+<p>原型链继承共享的属性和方法，构造函数继承实例属性 </p>
+<pre><code>function People(num) {  
+    this.num = num;  
+    this.name = [&apos;zhangsan&apos;,&apos;lisi&apos;,&apos;wangwu&apos;];  
+}  
+People.prototype.numCount = function() {  
+    console.log(this.num);  
+}  
+function Person(num) {  
+    People.call(this, num);  
+}  
+//继承方式  
+Person.prototype = new People();  
+Person.prototype.constructor = Person;  
+
+var per1 = new Person(10);  
+per1.name.push(&apos;zhaoliu&apos;);  
+console.log(per1.name);     //[&quot;zhangsan&quot;, &quot;lisi&quot;, &quot;wangwu&quot;, &quot;zhanliu&quot;]  
+per1.numCount();            //10  
+
+var per2 = new Person(20);  
+console.log(per2.name);     //[&quot;zhangsan&quot;, &quot;lisi&quot;, &quot;wangwu&quot;]  
+per2.numCount();            //20  </code></pre><p>更多继承方式请看：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Objects/Inheritance" target="_blank" rel="noopener">继承方式</a></p>
+<h3 id="数组常用方法"><a href="#数组常用方法" class="headerlink" title="数组常用方法"></a>数组常用方法</h3><p><strong>改变原数组：</strong></p>
+<pre><code>尾部删除pop()，尾部添加push()，头部删除shift()，头部添加unshift()，排序sort()，颠倒数组元素reverse()，删除或插入元素splice();</code></pre><p><strong>不会改变元素组：</strong></p>
+<pre><code>合并数组concat()，拼接数组元素join()，截取元素slice()，indexOf()，lastIndexOf()，toString()</code></pre><p>更详细数组方法总结请看：<a href="https://blog.csdn.net/yucihent/article/details/79685148" target="_blank" rel="noopener">Array数组方法总结</a></p>
+<h3 id="数据存储"><a href="#数据存储" class="headerlink" title="数据存储"></a>数据存储</h3><pre><code>Cookie：用于客户端与服务端通信，也具有本地存储的功能
+
+localStorage，sessionStorage：专门用于存储
+
+区别：
+
+大小：Cookie容量为4K，因为用于客户端与服务端通信，所有http都携带，如果太大会降低效率； localStorage，sessionStorage大小为5M。
+
+失效时间：Cookie会在浏览器关闭时删除，除非主动设置删除时间；localStorage一直都在直到用户主动删除或清除浏览器缓存；sessionStorage在浏览器关闭时删除。</code></pre><p>结束语：</p>
+<h6 id="转发自-赫子子"><a href="#转发自-赫子子" class="headerlink" title="转发自  赫子子"></a>转发自  <a href="https://segmentfault.com/u/hezizi" target="_blank" rel="noopener">赫子子</a></h6>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年03月20日 15:00</p>
+        <p>原始链接： <a class="post-url" href="/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/" title="前端面试javascript篇">http://yoursite.com/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="风闲子">
+                风闲子
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/&title=《前端面试javascript篇》 — codevow's Blog&pic=https://upload-images.jianshu.io/upload_images/2781391-b9ffdca1bbfa4150.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/&title=《前端面试javascript篇》 — codevow's Blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《前端面试javascript篇》 — codevow's Blog&url=http://yoursite.com/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/04/14/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95javascript%E7%AF%87/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/javascript/" class="color1">javascript</a>
+      
+    <a href="/tags/事件委托/" class="color5">事件委托</a>
+      
+    <a href="/tags/原型/" class="color3">原型</a>
+      
+    <a href="/tags/原型链/" class="color4">原型链</a>
+      
+    <a href="/tags/闭包/" class="color3">闭包</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#window-onload和document-ready的区别"><span class="post-toc-text">window.onload和document.ready的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组去重"><span class="post-toc-text">数组去重</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#事件委托"><span class="post-toc-text">事件委托</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#判断变量类型"><span class="post-toc-text">判断变量类型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同步和异步（简要阐述）"><span class="post-toc-text">同步和异步（简要阐述）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#返回false的几种情况"><span class="post-toc-text">返回false的几种情况</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js类型值的区别"><span class="post-toc-text">js类型值的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#闭包"><span class="post-toc-text">闭包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#this的指向"><span class="post-toc-text">this的指向</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#new具体做了些什么"><span class="post-toc-text">new具体做了些什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#原型和原型链"><span class="post-toc-text">原型和原型链</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#继承方式"><span class="post-toc-text">继承方式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数组常用方法"><span class="post-toc-text">数组常用方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#数据存储"><span class="post-toc-text">数据存储</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-6"><a class="post-toc-link" href="#转发自-赫子子"><span class="post-toc-text">转发自  赫子子</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2018/04/14/hexo%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          hexo常用命令笔记
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2017/11/16/Bootstrap%E5%AD%A6%E4%B9%A0%EF%BC%88%E4%B8%80%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Bootstrap学习（一）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 风闲子<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB/">书籍阅读</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/">前端面试</a><a class="category-link" href="/categories/%E5%B7%A5%E5%85%B7%E5%BA%93/">工具库</a><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hexo-%E7%9A%AE%E8%82%A4/" style="font-size: 10px;">hexo 皮肤</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" style="font-size: 10px;">事件委托</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">使用</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型链</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tags/%E5%BA%93/" style="font-size: 10px;">库</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" style="font-size: 10px;">技术选型</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a> <a href="/tags/%E7%9B%AE%E5%BD%95%E6%80%BB%E7%BA%B2/" style="font-size: 10px;">目录总纲</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 10px;">组件化</a> <a href="/tags/%E8%AF%9E%E7%94%9F/" style="font-size: 10px;">诞生</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">语法</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hexo-%E7%9A%AE%E8%82%A4/" style="font-size: 10px;">hexo 皮肤</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" style="font-size: 10px;">事件委托</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">使用</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型链</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tags/%E5%BA%93/" style="font-size: 10px;">库</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" style="font-size: 10px;">技术选型</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a> <a href="/tags/%E7%9B%AE%E5%BD%95%E6%80%BB%E7%BA%B2/" style="font-size: 10px;">目录总纲</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 10px;">组件化</a> <a href="/tags/%E8%AF%9E%E7%94%9F/" style="font-size: 10px;">诞生</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">语法</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
