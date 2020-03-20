@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>模块化方式构建Node.js应用程序 | codevow&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog" />
+  
+  <meta name="description" content="如今，几乎所有的Web服务或集成都是在Node.js运行时上完成的。Node.js是一个具有很多社区支持的灵活平台。我们甚至可以直接从Node.js创建xlsx，docx或pdf文档。所有主流云平台都可以使用Node.js作为其1级语言。   模块化Node.js通过设计，可以使用node_modules结构来实现模块化。所有必需的模块都存储在node_modules目录中，并且我们可以在代码中的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模块化方式构建Node.js应用程序">
+<meta property="og:url" content="http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/index.html">
+<meta property="og:site_name" content="codevow&#39;s Blog">
+<meta property="og:description" content="如今，几乎所有的Web服务或集成都是在Node.js运行时上完成的。Node.js是一个具有很多社区支持的灵活平台。我们甚至可以直接从Node.js创建xlsx，docx或pdf文档。所有主流云平台都可以使用Node.js作为其1级语言。   模块化Node.js通过设计，可以使用node_modules结构来实现模块化。所有必需的模块都存储在node_modules目录中，并且我们可以在代码中的">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-11-10T17:01:59.000Z">
+<meta property="article:modified_time" content="2020-03-20T05:36:08.334Z">
+<meta property="article:author" content="风闲子">
+<meta property="article:tag" content="Node.js">
+<meta property="article:tag" content="模块化">
+<meta property="article:tag" content="应用程序">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">codevow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        codevow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="codevow" target="_blank" href="//codevow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/fengxianzai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/fengxianzai">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/fengxianzai">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-模块化方式构建Node-js应用程序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      模块化方式构建Node.js应用程序
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/技术文章/">技术文章</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2017-11-11
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <p>如今，几乎所有的Web服务或集成都是在Node.js运行时上完成的。Node.js是一个具有很多社区支持的灵活平台。我们甚至可以直接从Node.js创建xlsx，docx或pdf文档。所有主流云平台都可以使用Node.js作为其1级语言。</p>
+
+
+<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><p>Node.js通过设计，可以使用node_modules结构来实现模块化。所有必需的模块都存储在node_modules目录中，并且我们可以在代码中的任何地方调用这些模块。</p>
+<p>而现在，我们将在应用程序代码中使用这种模块化的方式。我看到的大多数应用程序都包含一个lib文件夹，其中存储了所有的JS文件。这些js文件使用相对路径导入所需区域。</p>
+<pre><code>const db = require(&quot;../db/&quot;)
+const logging = require (&quot;../../logging&quot;)</code></pre><p>这种方法的主要问题是当我们改变服务文件的路径时，到DB的路径也应该改变。此外，格式是不可读的。我们将对文件的真实性感到困惑。</p>
+<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>一个更好的方法是将应用程序设计为模块，例如DB，日志记录，错误等。假设你的应用程序名称为cms，那么使用scope可以更容易地表示模块。<br>    require(“@cms/db”)</p>
+<p>你可以单独开发模块，并将它们发布到任何NPM服务器（公共/私有），并像任何其他模块一样使用它们。</p>
+<p>如果你的应用程序需要日志记录模块：</p>
+<pre><code>npm install --save @cms/logging</code></pre><p>如果你不想将应用程序分成几个部分，那么还有另一种方法。</p>
+<h4 id="更优的方式"><a href="#更优的方式" class="headerlink" title="更优的方式"></a>更优的方式</h4><p>将所需的模块保存在一个单独的文件夹中。假设有“@cms”。为每个模块使用单独的文件夹，让模块有一个单独的package.json。这样就可以成为一个有效的Node模块。</p>
+{% asset_img mnp1.png npm %}
+
+{% asset_img mnp2.png npm %}
+
+{% asset_img mnp3.png npm %}
+
+<p>模块的package.json将如下所示</p>
+<pre><code>{
+  &quot;name&quot;: &quot;@cms/db&quot;,  
+  &quot;version&quot;: &quot;1.0.1&quot;,  
+  &quot;description&quot;: &quot;db module for CMS Application&quot;,  
+  &quot;main&quot;: &quot;index.js&quot;,  
+  &quot;dependencies&quot;:{  
+    &quot;mysql&quot; : &quot;latest&quot;  
+  }  
+}</code></pre><p>模块准备好了之后，就可以做一些脚本了。在“scripts”文件夹中添加install.js。</p>
+<pre><code>let fs = require(&apos;fs&apos;)
+console.log(&apos;Creating symlinks ...&apos;)
+if (fs.existsSync(&apos;node_modules/@cms&apos;)) {
+    console.log(&apos;link exists already &apos;)
+} else {
+    let source = &apos;../@cms&apos;
+    console.log(`creating link for ${source}`)
+    fs.symlinkSync(source, &apos;node_modules/@cms&apos;, &apos;junction&apos;)
+    console.log(&apos;done&apos;)
+}</code></pre><p>将此脚本添加到main package.json。</p>
+<pre><code>{
+  &quot;name&quot;: &quot;CMSApplication&quot;,
+  &quot;version&quot;: &quot;1.0.1&quot;,
+  &quot;description&quot;: &quot;Sample CMS Application&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;install&quot;: &quot;node scripts/install.js&quot;,
+    &quot;start&quot;: &quot;node index.js&quot;
+  },
+  &quot;dependencies&quot;:{
+    &quot;express&quot; : &quot;latest&quot;
+  }
+}</code></pre><p>每当你执行npm安装时都会执行该脚本。因此，一旦所有其他节点模块被定义并且依赖关系被安装好了之后，它将创建从@cms文件夹外部到@cms文件夹内部node_modules的链接。所以你对外部@cms文件夹所做的任何更改都将反映到文件夹内部的node_modules。</p>
+
+
+<p>你可以看到我们对@cms安装了符号链接。这不是一个快捷文件，不是在Linux中使用“ln”创建的硬链接。</p>
+<p>在@cms内部，你可以看到我们在外部@cms文件夹中定义的模块。</p>
+<p>这样你就实现了模块化。“@cms”文件夹是你源代码的一部分。然后你可以按正常方式导入所需的模块。</p>
+<pre><code>const {logger} = require(&quot;@cms/logging&quot;)
+logger.info(&quot;Welcome to CMS Application&quot;)</code></pre><p>当你希望应用程序执行时，运行“npm install”，然后运行“npm start”。</p>
+<p>这种方法有助于使应用程序更加模块化和可扩展。欢迎在评论中讲述你的看法。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2020年03月20日 13:36</p>
+        <p>原始链接： <a class="post-url" href="/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" title="模块化方式构建Node.js应用程序">http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="风闲子">
+                风闲子
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/&title=《模块化方式构建Node.js应用程序》 — codevow's Blog&pic=/source/images/模块化方式构建Node-js应用程序/nodejs-logo-2.jpg" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/&title=《模块化方式构建Node.js应用程序》 — codevow's Blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《模块化方式构建Node.js应用程序》 — codevow's Blog&url=http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Node.js/" class="color3">Node.js</a>
+      
+    <a href="/tags/模块化/" class="color4">模块化</a>
+      
+    <a href="/tags/应用程序/" class="color5">应用程序</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#模块化"><span class="post-toc-text">模块化</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决方案"><span class="post-toc-text">解决方案</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#更优的方式"><span class="post-toc-text">更优的方式</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/03/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B-%E5%9F%BA%E7%A1%80%E7%AF%87/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          前端工程-基础篇
+        
+      </span>
+    </a>
+  
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 风闲子<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" style="font-size: 10px;">技术选型</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 10px;">组件化</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" style="font-size: 10px;">技术选型</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 10px;">组件化</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
