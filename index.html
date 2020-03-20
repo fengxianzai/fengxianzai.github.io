@@ -113,6 +113,77 @@
       <div class="outer">
         <section id="main" class="body-wrap">
   
+    <article id="post-前端工程-基础篇" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B-%E5%9F%BA%E7%A1%80%E7%AF%87/"  >前端工程-基础篇</a>
+    </h1>
+  
+
+          
+              <span class="header-cate">
+                <i class="fa fa-map-marker"></i>
+                  
+                  <a href="/categories/技术文章/">技术文章</a>
+                  
+              </span>
+          
+      </header>
+    
+    <div class="article-entry " itemprop="articleBody">
+      
+        <div class="article-img">
+            <a href="/2020/03/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B-%E5%9F%BA%E7%A1%80%E7%AF%87/" >
+                
+                <img src="http://yoursite.com//source/模块化方式构建Node-js应用程序/2.jpeg" alt="前端工程-基础篇" title="前端工程-基础篇">
+                
+            </a>
+        </div>
+        <div class="article-feed">
+            <p>
+                
+喂喂喂，那个切图的，把页面写好就发给研发工程师套模板吧。
+
+你好，切图仔。不知道你的团队如何定义前端开发，据我所知，时至今日仍然有很多团队会把前端开发归类为产品或者设计岗位，虽然身份之争多少有些无谓，但我对这种偏见还是心存芥蒂，酝酿了许久，决定写一个系列的文章，试着从工程的角度系统的介绍一下我对前端，尤其是Web前端的理解。只要我们还把自己的工作看作为一项软件开发活动，...
+            </p>
+        </div>
+      
+        
+    </div>
+    <footer class="article-footer">
+        
+        <ul class="article-footer-menu">
+            
+                <li><i class="fa fa-calendar"></i>2020-03-20</li>
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/前端工程/" class="color5">前端工程</a>
+      
+    <a href="/tags/技术选型/" class="color5">技术选型</a>
+      
+    <a href="/tags/组件化/" class="color4">组件化</a>
+      
+    <a href="/tags/优化/" class="color3">优化</a>
+      
+  </li>
+
+        </ul>
+        
+            <a href="/2020/03/20/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B-%E5%9F%BA%E7%A1%80%E7%AF%87/#more" class="article-more-link" >more&gt;&gt;</a>
+        
+    </footer>
+  </div>
+</article>
+
+
+  
     <article id="post-模块化方式构建Node-js应用程序" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -136,80 +207,21 @@
     
     <div class="article-entry " itemprop="articleBody">
       
-            
-            <p>如今，几乎所有的Web服务或集成都是在Node.js运行时上完成的。Node.js是一个具有很多社区支持的灵活平台。我们甚至可以直接从Node.js创建xlsx，docx或pdf文档。所有主流云平台都可以使用Node.js作为其1级语言。</p>
-
-
-<h4 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h4><p>Node.js通过设计，可以使用node_modules结构来实现模块化。所有必需的模块都存储在node_modules目录中，并且我们可以在代码中的任何地方调用这些模块。</p>
-<p>而现在，我们将在应用程序代码中使用这种模块化的方式。我看到的大多数应用程序都包含一个lib文件夹，其中存储了所有的JS文件。这些js文件使用相对路径导入所需区域。</p>
-<pre><code>const db = require(&quot;../db/&quot;)
-const logging = require (&quot;../../logging&quot;)</code></pre><p>这种方法的主要问题是当我们改变服务文件的路径时，到DB的路径也应该改变。此外，格式是不可读的。我们将对文件的真实性感到困惑。</p>
-<h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><p>一个更好的方法是将应用程序设计为模块，例如DB，日志记录，错误等。假设你的应用程序名称为cms，那么使用scope可以更容易地表示模块。<br>    require(“@cms/db”)</p>
-<p>你可以单独开发模块，并将它们发布到任何NPM服务器（公共/私有），并像任何其他模块一样使用它们。</p>
-<p>如果你的应用程序需要日志记录模块：</p>
-<pre><code>npm install --save @cms/logging</code></pre><p>如果你不想将应用程序分成几个部分，那么还有另一种方法。</p>
-<h4 id="更优的方式"><a href="#更优的方式" class="headerlink" title="更优的方式"></a>更优的方式</h4><p>将所需的模块保存在一个单独的文件夹中。假设有“@cms”。为每个模块使用单独的文件夹，让模块有一个单独的package.json。这样就可以成为一个有效的Node模块。</p>
-{% asset_img mnp1.png npm %}
-
-{% asset_img mnp2.png npm %}
-
-{% asset_img mnp3.png npm %}
-
-<p>模块的package.json将如下所示</p>
-<pre><code>{
-  &quot;name&quot;: &quot;@cms/db&quot;,  
-  &quot;version&quot;: &quot;1.0.1&quot;,  
-  &quot;description&quot;: &quot;db module for CMS Application&quot;,  
-  &quot;main&quot;: &quot;index.js&quot;,  
-  &quot;dependencies&quot;:{  
-    &quot;mysql&quot; : &quot;latest&quot;  
-  }  
-}</code></pre><p>模块准备好了之后，就可以做一些脚本了。在“scripts”文件夹中添加install.js。</p>
-<pre><code>let fs = require(&apos;fs&apos;)
-console.log(&apos;Creating symlinks ...&apos;)
-if (fs.existsSync(&apos;node_modules/@cms&apos;)) {
-    console.log(&apos;link exists already &apos;)
-} else {
-    let source = &apos;../@cms&apos;
-    console.log(`creating link for ${source}`)
-    fs.symlinkSync(source, &apos;node_modules/@cms&apos;, &apos;junction&apos;)
-    console.log(&apos;done&apos;)
-}</code></pre><p>将此脚本添加到main package.json。</p>
-<pre><code>{
-  &quot;name&quot;: &quot;CMSApplication&quot;,
-  &quot;version&quot;: &quot;1.0.1&quot;,
-  &quot;description&quot;: &quot;Sample CMS Application&quot;,
-  &quot;main&quot;: &quot;index.js&quot;,
-  &quot;scripts&quot;: {
-    &quot;install&quot;: &quot;node scripts/install.js&quot;,
-    &quot;start&quot;: &quot;node index.js&quot;
-  },
-  &quot;dependencies&quot;:{
-    &quot;express&quot; : &quot;latest&quot;
-  }
-}</code></pre><p>每当你执行npm安装时都会执行该脚本。因此，一旦所有其他节点模块被定义并且依赖关系被安装好了之后，它将创建从@cms文件夹外部到@cms文件夹内部node_modules的链接。所以你对外部@cms文件夹所做的任何更改都将反映到文件夹内部的node_modules。</p>
-
-
-<p>你可以看到我们对@cms安装了符号链接。这不是一个快捷文件，不是在Linux中使用“ln”创建的硬链接。</p>
-<p>在@cms内部，你可以看到我们在外部@cms文件夹中定义的模块。</p>
-<p>这样你就实现了模块化。“@cms”文件夹是你源代码的一部分。然后你可以按正常方式导入所需的模块。</p>
-<pre><code>const {logger} = require(&quot;@cms/logging&quot;)
-logger.info(&quot;Welcome to CMS Application&quot;)</code></pre><p>当你希望应用程序执行时，运行“npm install”，然后运行“npm start”。</p>
-<p>这种方法有助于使应用程序更加模块化和可扩展。欢迎在评论中讲述你的看法。</p>
-
-            <div class="post-copyright">
-    <div class="content">
-        <p>最后更新： 2020年03月20日 13:36</p>
-        <p>原始链接： <a class="post-url" href="/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" title="模块化方式构建Node.js应用程序">http://yoursite.com/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/</a></p>
-        <footer>
-            <a href="http://yoursite.com">
-                <img src="/images/logo.png" alt="风闲子">
-                风闲子
+        <div class="article-img">
+            <a href="/2017/11/11/%E6%A8%A1%E5%9D%97%E5%8C%96%E6%96%B9%E5%BC%8F%E6%9E%84%E5%BB%BANode-js%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" >
+                
+                <img src="http://yoursite.com//source/images/模块化方式构建Node-js应用程序/nodejs-logo-2.jpg" alt="模块化方式构建Node.js应用程序" title="模块化方式构建Node.js应用程序">
+                
             </a>
-        </footer>
-    </div>
-</div>
+        </div>
+        <div class="article-feed">
+            <p>
+                如今，几乎所有的Web服务或集成都是在Node.js运行时上完成的。Node.js是一个具有很多社区支持的灵活平台。我们甚至可以直接从Node.js创建xlsx，docx或pdf文档。所有主流云平台都可以使用Node.js作为其1级语言。
 
+
+模块化Node.js通过设计，可以使用node_modules结构来实现模块化。所有必需的模块都存储在node_modules目录...
+            </p>
+        </div>
       
         
     </div>
@@ -298,7 +310,7 @@ logger.info(&quot;Welcome to CMS Application&quot;)</code></pre><p>当你希望�
             <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
         </div>
         <div id="sidebar-menu-box-tags">
-            <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a>
+            <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" style="font-size: 10px;">技术选型</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 10px;">组件化</a>
         </div>
     </div>
     <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
@@ -331,7 +343,7 @@ logger.info(&quot;Welcome to CMS Application&quot;)</code></pre><p>当你希望�
     <div class="mobile-header-tag-container">
         <span class="title">Tags</span>
         <div id="mobile-header-container-tags">
-            <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a>
+            <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" style="font-size: 10px;">技术选型</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 10px;">组件化</a>
         </div>
     </div>
 </div>
