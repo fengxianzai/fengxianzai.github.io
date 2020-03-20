@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Javascript基本语法概念（第3章） | codevow&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="MinHow,MinHow's Blog" />
+  
+  <meta name="description" content="1. 语法1.1 区分大小写要理解的第一个概念就是ECMAScript中的一切（变量、函数名和操作符）都区分大小写。这也就意味着，变量名 test 和变量名 Test 分别表示两个不同的变量，而函数名不能使用 typeof，因为它是一个关键字，但 typeOf 则完全可以是一个有效的函数名。 1.2 标识符所谓标识符，就是指变量、函数、属性的名字，或者函数的参数。标识符可以是按照下列格式规则组合起">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript基本语法概念（第3章）">
+<meta property="og:url" content="http://yoursite.com/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/index.html">
+<meta property="og:site_name" content="codevow&#39;s Blog">
+<meta property="og:description" content="1. 语法1.1 区分大小写要理解的第一个概念就是ECMAScript中的一切（变量、函数名和操作符）都区分大小写。这也就意味着，变量名 test 和变量名 Test 分别表示两个不同的变量，而函数名不能使用 typeof，因为它是一个关键字，但 typeOf 则完全可以是一个有效的函数名。 1.2 标识符所谓标识符，就是指变量、函数、属性的名字，或者函数的参数。标识符可以是按照下列格式规则组合起">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-01-03T06:25:19.000Z">
+<meta property="article:modified_time" content="2019-01-03T07:56:02.450Z">
+<meta property="article:author" content="风闲子">
+<meta property="article:tag" content="Javascript">
+<meta property="article:tag" content="语法">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<script src="/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/" class="left">
+                    <span class="site-title">codevow&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+            <div id="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
+            </div>
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        codevow&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        一个专注 WEB 开发的技术博客
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a title="codevow" target="_blank" href="//codevow.com">
+                            <i class="fa fa-home fa-2x"></i></a>
+                    
+                        <a title="Github" target="_blank" href="//github.com/fengxianzai">
+                            <i class="fa fa-github fa-2x"></i></a>
+                    
+                        <a title="Weibo" target="_blank" href="//weibo.com/fengxianzai">
+                            <i class="fa fa-weibo fa-2x"></i></a>
+                    
+                        <a title="Twitter" target="_blank" href="//twitter.com/fengxianzai">
+                            <i class="fa fa-twitter fa-2x"></i></a>
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Javascript基本语法概念（第3章）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Javascript基本语法概念（第3章）
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/categories/书籍阅读/">书籍阅读</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2019-01-03
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="1-语法"><a href="#1-语法" class="headerlink" title="1. 语法"></a>1. 语法</h3><h4 id="1-1-区分大小写"><a href="#1-1-区分大小写" class="headerlink" title="1.1 区分大小写"></a>1.1 区分大小写</h4><p>要理解的第一个概念就是ECMAScript中的一切（变量、函数名和操作符）都区分大小写。这也就意味着，变量名 test 和变量名 Test 分别表示两个不同的变量，而函数名不能使用 typeof，因为它<br>是一个关键字，但 typeOf 则完全可以是一个有效的函数名。</p>
+<h4 id="1-2-标识符"><a href="#1-2-标识符" class="headerlink" title="1.2 标识符"></a>1.2 标识符</h4><p>所谓标识符，就是指变量、函数、属性的名字，或者函数的参数。标识符可以是按照下列格式规则<br>组合起来的一或多个字符：</p>
+<ul>
+<li>第一个字符必须是一个字母、下划线（_）或一个美元符号（$）；</li>
+<li>其他字符可以是字母、下划线、美元符号或数字。</li>
+</ul>
+<p>按照惯例， ECMAScript 标识符采用驼峰大小写格式，也就是第一个字母小写，剩下的每个单词的<br>首字母大写，例如：firstSecond、myCar、doSomethingImportant</p>
+<h4 id="1-3-注释"><a href="#1-3-注释" class="headerlink" title="1.3 注释"></a>1.3 注释</h4><p>ECMAScript 使用 C风格的注释，包括单行注释和块级注释。单行注释以两个斜杠开头，如下所示：</p>
+<pre><code>// 单行注释</code></pre><p>块级注释以一个斜杠和一个星号（/<em>）开头，以一个星号和一个斜杠（</em>/）结尾，如下所示：</p>
+<pre><code>/*
+    - 这是一个多行
+    - （块级）注释
+*/</code></pre><p>虽然上面注释中的第二和第三行都以一个星号开头，但这不是必需的。之所以添加那两个星号，纯<br>粹是为了提高注释的可读性（这种格式在企业级应用中用得比较多）。</p>
+<h4 id="1-4-严格模式"><a href="#1-4-严格模式" class="headerlink" title="1.4 严格模式"></a>1.4 严格模式</h4><p>ECMAScript 5 引入了严格模式（strict mode）的概念。严格模式是为 JavaScript定义了一种不同的解析与执行模型。在严格模式下，ECMAScript3中的一些不确定的行为将得到处理，而且对某些不安全的操作也会抛出错误。要在整个脚本中启用严格模式，可以在顶部添加如下代码：</p>
+<pre><code>&quot;use strict&quot;;</code></pre><p>这行代码看起来像是字符串，而且也没有赋值给任何变量，但其实它是一个编译指示（pragma），用于告诉支持的JavaScript引擎切换到严格模式。这是为不破坏ECMAScript3语法而特意选定的语法。在函数内部的上方包含这条编译指示，也可以指定函数在严格模式下执行：</p>
+<pre><code>function doSomething(){
+    &quot;use strict&quot;;
+    //函数体
+}</code></pre><h4 id="1-5-语句"><a href="#1-5-语句" class="headerlink" title="1.5 语句"></a>1.5 语句</h4><p>ECMAScript中的语句以一个分号结尾；如果省略分号，则由解析器确定语句的结尾，如下例所示：</p>
+<pre><code>var sum = a + b // 即使没有分号也是有效的语句——不推荐
+var diff = a - b; // 有效的语句——推荐</code></pre><blockquote>
+<p>虽然语句结尾的分号不是必需的，但我们建议任何时候都不要省略它。因为加上这个分号可以避免<br>很多错误（例如不完整的输入），开发人员也可以放心地通过删除多余的空格来压缩 ECMAScript 代码（代码行结尾处没有分号会导致压缩错误）。另外，加上分号也会在某些情况下增进代码的性能，因为这样解析器就不必再花时间推测应该在哪里插入分号了。</p>
+</blockquote>
+<h3 id="2-关键字和保留字"><a href="#2-关键字和保留字" class="headerlink" title="2. 关键字和保留字"></a>2. 关键字和保留字</h3><p>ECMA-262 描述了一组具有特定用途的关键字，这些关键字可用于表示控制语句的开始或结束，或<br>者用于执行特定操作等。按照规则，关键字也是语言保留的，不能用作标识符。以下就是ECMAScript的全部关键字（带*号上标的是第 5 版新增的关键字）：</p>
+<p>break       do          instanceof      typeof<br>case        else        new             var<br>catch       finally     return          void<br>continue    for         switch          while<br>debugger*   function    this            with<br>default     if          throw<br>delete      in          try</p>
+<p>ECMA-262 还描述了另外一组不能用作标识符的保留字。尽管保留字在这门语言中还没有任何特定<br>的用途，但它们有可能在将来被用作关键字。以下是 ECMA-262 第 3 版定义的全部保留字：</p>
+<p>abstract    enum        int             short<br>boolean     export      interface       static<br>byte        extends     long            super<br>char        final       native          synchronized<br>class       float       package         throws<br>const       goto        private         transient<br>debugger    implements  protected       volatile<br>double      import      public</p>
+<h3 id="3-变量"><a href="#3-变量" class="headerlink" title="3. 变量"></a>3. 变量</h3><p>ECMAScript 的变量是松散类型的，所谓松散类型就是可以用来保存任何类型的数据。换句话说，<br>每个变量仅仅是一个用于保存值的占位符而已。定义变量时要使用 var操作符（注意var是一个关键<br>字），后跟变量名（即一个标识符），如下所示：</p>
+<pre><code>var message;</code></pre><p>变量可以用来保存任何值（<strong>像这样未经过初始化的变量，会保存一个特殊的值——undefined</strong>）<br>ECMAScript 也支持直接初始化变量，因此在定义变量的同时就可以设置变量的值，如下所示：</p>
+<pre><code>var message = &quot;hi&quot;;</code></pre><p><strong>有一点必须注意，即用var操作符定义的变量将成为定义该变量的作用域中的局部变量。也就是说，<br>如果在函数中使用 var 定义一个变量，那么这个变量在函数退出后就会被销毁</strong>，例如：</p>
+<pre><code>function test(){
+    var message = &quot;hi&quot;; // 局部变量
+}
+test();
+alert(message); // 错误！</code></pre><p>不过，可以像下面这样省略 var 操作符，从而创建一个全局变量：</p>
+<pre><code>function test(){
+    message = &quot;hi&quot;; // 全局变量
+}
+test();
+alert(message); // &quot;hi</code></pre><p>可以使用一条语句定义多个变量，只要像下面这样把每个变量（初始化或不初始化均可）用逗号分<br>隔开即可：</p>
+<pre><code>var message = &quot;hi&quot;,
+    found = false,
+    age = 29;</code></pre><h3 id="4-数据类型"><a href="#4-数据类型" class="headerlink" title="4. 数据类型"></a>4. 数据类型</h3><p>ECMAScript 中有5种简单数据类型（也称为基本数据类型）：Undefined、Null、Boolean、Number和String。还有1种复杂数据类型——Object，Object本质上是由一组无序的名值对组成的。ECMAScript不支持任何创建自定义类型的机制，而所有值最终都将是上述 6 种数据类型之一。</p>
+<h5 id="4-1-typeof操作符"><a href="#4-1-typeof操作符" class="headerlink" title="4.1 typeof操作符"></a>4.1 typeof操作符</h5><p>鉴于 ECMAScript 是松散类型的，因此需要有一种手段来检测给定变量的数据类型——typeof就是负责提供这方面信息的操作符。对一个值使用 typeof 操作符可能返回下列某个字符串：</p>
+<ul>
+<li>“undefined”——如果这个值未定义；</li>
+<li>“boolean”——如果这个值是布尔值；</li>
+<li>“string”——如果这个值是字符串；</li>
+<li>“number”——如果这个值是数值；</li>
+<li>“object”——如果这个值是对象或 null；</li>
+<li>“function”——如果这个值是函数。</li>
+</ul>
+<p><strong>有些时候， typeof 操作符会返回一些令人迷惑但技术上却正确的值。比如，调用 typeof null<br>会返回”object”，因为特殊值 null 被认为是一个空的对象引用。</strong></p>
+<h5 id="4-2-undefined类型"><a href="#4-2-undefined类型" class="headerlink" title="4.2 undefined类型"></a>4.2 undefined类型</h5><p>Undefined 类型只有一个值，即特殊的undefined。在使用var声明变量但未对其加以初始化时，这个变量的值就是 undefined，例如：</p>
+<pre><code>var message;
+alert(message == undefined); //true</code></pre><h4 id="4-3-null类型"><a href="#4-3-null类型" class="headerlink" title="4.3 null类型"></a>4.3 null类型</h4><p>Null 类型是第二个只有一个值的数据类型，这个特殊的值是null。从逻辑角度来看，null值表示一个空对象指针，而这也正是使用 typeof 操作符检测 null 值时会返回”object”的原因，如下面<br>的例子所示：</p>
+<pre><code>var car = null;
+alert(typeof car); // &quot;object&quot;</code></pre><p>如果定义的变量准备在将来用于保存对象，那么最好将该变量初始化为 null 而不是其他值。这样<br>一来，只要直接检查 null值就可以知道相应的变量是否已经保存了一个对象的引用，如下面的例子<br>所示：</p>
+<pre><code>if (car != null){
+    // 对 car 对象执行某些操作
+}</code></pre><p>、<br>实际上， undefined 值是派生自null值的，因此ECMA-262规定对它们的相等性测试要返回true：</p>
+<pre><code>alert(null == undefined); //true</code></pre><h4 id="4-4-Boolean类型"><a href="#4-4-Boolean类型" class="headerlink" title="4.4 Boolean类型"></a>4.4 Boolean类型</h4><p>Boolean 类型是 ECMAScript 中使用得最多的一种类型，该类型只有两个字面值：true和false。<br>这两个值与数字值不是一回事，因此 true 不一定等于1，而false也不一定等于0。以下是为变量赋<br>Boolean 类型值的例子：</p>
+<pre><code>var found = true;
+var lost = false;</code></pre><p>需要注意的是，Boolean 类型的字面值 true 和 false 是区分大小写的。也就是说，True 和 False（以及其他的混合大小写形式）都不是Boolean值，只是标识符。虽然Boolean类型的字面值只有两个，但ECMAScript中所有类型的值都有与这两个Boolean值等价的值。要将一个值转换为其对应的 Boolean 值，可以调用转型函数 Boolean()，如下例所示：</p>
+<pre><code>var message = &quot;Hello world!&quot;;
+var messageAsBoolean = Boolean(message);</code></pre><p><strong>能够转换成true的其他数据类型有：String类型的任何非空字符串、Number类型的任何非零数字值（包括无穷大）、Object类型的任何对象</strong></p>
+<p><strong>能够转换成false的其他数据类型有：String类型的空字符串（” “）、Number类型的0和NaN、Object类型的null、undefined</strong></p>
+<h4 id="4-5-Number类型"><a href="#4-5-Number类型" class="headerlink" title="4.5 Number类型"></a>4.5 Number类型</h4><p>Number 类型应该是 ECMAScript 中最令人关注的数据类型了，这种类型使用 IEEE754 格式来表示整数和浮点数值（浮点数值在某些语言中也被称为双精度数值）</p>
+<p>最基本的数值字面量格式是十进制整数，十进制整数可以像下面这样直接在代码中输入：</p>
+<pre><code>var intNum = 55; // 整数</code></pre><p>除了以十进制表示外，整数还可以通过八进制（以 8 为基数）或十六进制（以16为基数）的字面值<br>来表示。其中，八进制字面值的第一位必须是零（0），然后是八进制数字序列（0～7）。如果字面值中的数值超出了范围，那么前导零将被忽略，后面的数值将被当作十进制数值解析。请看下面的例：</p>
+<pre><code>var octalNum1 = 070; // 八进制的 56
+var octalNum2 = 079; // 无效的八进制数值——解析为 79
+var octalNum3 = 08; // 无效的八进制数值——解析为 8</code></pre><p>八进制字面量在严格模式下是无效的，会导致支持的JavaScript引擎抛出错误。十六进制字面值的前两位必须是 0x，后跟任何十六进制数字（0～9及A～F）。其中，字母A～F可以大写，也可以小写。如下面的例子所示：</p>
+<pre><code>var hexNum1 = 0xA; // 十六进制的 10
+var hexNum2 = 0x1f; // 十六进制的 31</code></pre><p>在进行算术计算时，所有以八进制和十六进制表示的数值最终都将被转换成十进制数值。</p>
+<h5 id="4-5-1浮点数值"><a href="#4-5-1浮点数值" class="headerlink" title="4.5.1浮点数值"></a>4.5.1浮点数值</h5><p>所谓浮点数值，就是该数值中必须包含一个小数点，并且小数点后面必须至少有一位数字。虽然小<br>数点前面可以没有整数，但我们不推荐这种写法。以下是浮点数值的几个例子：</p>
+<pre><code>var floatNum1 = 1.1;
+var floatNum2 = 0.1;
+var floatNum3 = .1; // 有效，但不推荐</code></pre><p>由于保存浮点数值需要的内存空间是保存整数值的两倍，因此 ECMAScript 会不失时机地将浮点数值转换为整数值。显然，如果小数点后面没有跟任何数字，那么这个数值就可以作为整数值来保存。同样地，如果浮点数值本身表示的就是一个整数（如 1.0），那么该值也会被转换为整数。</p>
+<p><strong>浮点数值的最高精度是 17 位小数，但在进行算术计算时其精确度远远不如整数。例如， 0.1加 0.2的结果不是 0.3，而是 0.30000000000000004。</strong></p>
+<blockquote>
+<p>如果某次计算的结果得到了一个超出JavaScript数值范围的值，那么这个数值将被自动转换成特殊的 Infinity 值。具体来说，如果这个数值是负数，则会被转换成-Infinity（负无穷），如果这个数值是正数，则会被转换成 Infinity（正无穷）。如上所述，如果某次计算返回了正或负的 Infinity 值，那么该值将无法继续参与下一次的计算，因为Infinity不是能够参与计算的数值。要想确定一个数值是不是有穷的（换句话说，是不是位于最小和最大的数值之间），可以使用 isFinite()函数。这个函数在参数位于最小与最大数值之间时会返回 true</p>
+</blockquote>
+<h5 id="4-5-2-NaN"><a href="#4-5-2-NaN" class="headerlink" title="4.5.2 NaN"></a>4.5.2 NaN</h5><p>NaN，即非数值（Not a Number）是一个特殊的数值，这个数值用于表示一个本来要返回数值的操作数未返回数值的情况（这样就不会抛出错误了）。例如，在其他编程语言中，任何数值除以0都会导致错误，从而停止代码执行。但在ECMAScript中，任何数值除以0会返回NaN①，因此不会影响其他代码的执行。<br>NaN 本身有两个非同寻常的特点。首先，任何涉及 NaN 的操作（例如 NaN/10）都会返回 NaN，这<br>个特点在多步计算中有可能导致问题。其次， NaN 与任何值都不相等，包括 NaN 本身。例如，下面的代<br>码会返回 false：</p>
+<pre><code>alert(NaN == NaN); //false</code></pre><p>针对 NaN 的这两个特点， ECMAScript 定义了isNaN()函数。这个函数接受一个参数，该参数可以是任何类型，而函数会帮我们确定这个参数是否“不是数值”。isNaN()在接收到一个值之后，会尝试<br>将这个值转换为数值。某些不是数值的值会直接转换为数值，例如字符串”10”或 Boolean值。而任何<br>不能被转换为数值的值都会导致这个函数返回 true。</p>
+<h5 id="4-5-3-数值转换"><a href="#4-5-3-数值转换" class="headerlink" title="4.5.3 数值转换"></a>4.5.3 数值转换</h5><p>有 3 个函数可以把非数值转换为数值： Number()、 parseInt()和parseFloat()。第一个函数，<br>即转型函数 Number()可以用于任何数据类型，而另两个函数则专门用于把字符串转换成数值。这 3 个函数对于同样的输入会有返回不同的结果。</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2019年01月03日 15:56</p>
+        <p>原始链接： <a class="post-url" href="/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" title="Javascript基本语法概念（第3章）">http://yoursite.com/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/</a></p>
+        <footer>
+            <a href="http://yoursite.com">
+                <img src="/images/logo.png" alt="风闲子">
+                风闲子
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        请我吃糖~
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/&title=《Javascript基本语法概念（第3章）》 — codevow's Blog&pic=http://yoursite.comimages/logo.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/&title=《Javascript基本语法概念（第3章）》 — codevow's Blog&source=专注 WEB 开发的技术博客" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Javascript基本语法概念（第3章）》 — codevow's Blog&url=http://yoursite.com/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/&via=http://yoursite.com" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/01/03/Javascript%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC3%E7%AB%A0%EF%BC%89/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/Javascript/" class="color1">Javascript</a>
+      
+    <a href="/tags/语法/" class="color3">语法</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-语法"><span class="post-toc-text">1. 语法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-区分大小写"><span class="post-toc-text">1.1 区分大小写</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-标识符"><span class="post-toc-text">1.2 标识符</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-注释"><span class="post-toc-text">1.3 注释</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-严格模式"><span class="post-toc-text">1.4 严格模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-5-语句"><span class="post-toc-text">1.5 语句</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-关键字和保留字"><span class="post-toc-text">2. 关键字和保留字</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-变量"><span class="post-toc-text">3. 变量</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4-数据类型"><span class="post-toc-text">4. 数据类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-1-typeof操作符"><span class="post-toc-text">4.1 typeof操作符</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-2-undefined类型"><span class="post-toc-text">4.2 undefined类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-3-null类型"><span class="post-toc-text">4.3 null类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-4-Boolean类型"><span class="post-toc-text">4.4 Boolean类型</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-5-Number类型"><span class="post-toc-text">4.5 Number类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-5-1浮点数值"><span class="post-toc-text">4.5.1浮点数值</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-5-2-NaN"><span class="post-toc-text">4.5.2 NaN</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#4-5-3-数值转换"><span class="post-toc-text">4.5.3 数值转换</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/2020/03/19/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Hello World
+        
+      </span>
+    </a>
+  
+  
+    <a href="/2019/01/03/%E5%9C%A8HTML%E4%B8%AD%E4%BD%BF%E7%94%A8Javascript%EF%BC%88%E7%AC%AC2%E7%AB%A0%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">在HTML中使用Javascript（第2章）</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2020 风闲子<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "http://yoursite.com",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/categories/%E4%B9%A6%E7%B1%8D%E9%98%85%E8%AF%BB/">书籍阅读</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6/">前端框架</a><a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%AF%95/">前端面试</a><a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0/">技术文章</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hexo-%E7%9A%AE%E8%82%A4/" style="font-size: 10px;">hexo 皮肤</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" style="font-size: 10px;">事件委托</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">使用</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型链</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tags/%E5%BA%93/" style="font-size: 10px;">库</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" style="font-size: 10px;">技术选型</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a> <a href="/tags/%E7%9B%AE%E5%BD%95%E6%80%BB%E7%BA%B2/" style="font-size: 10px;">目录总纲</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 10px;">组件化</a> <a href="/tags/%E8%AF%9E%E7%94%9F/" style="font-size: 10px;">诞生</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">语法</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/tags/Bootstrap/" style="font-size: 10px;">Bootstrap</a> <a href="/tags/CSS/" style="font-size: 10px;">CSS</a> <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/UI/" style="font-size: 10px;">UI</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hexo-%E7%9A%AE%E8%82%A4/" style="font-size: 10px;">hexo 皮肤</a> <a href="/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/tags/%E4%BA%8B%E4%BB%B6%E5%A7%94%E6%89%98/" style="font-size: 10px;">事件委托</a> <a href="/tags/%E4%BC%98%E5%8C%96/" style="font-size: 10px;">优化</a> <a href="/tags/%E4%BD%BF%E7%94%A8/" style="font-size: 10px;">使用</a> <a href="/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B/" style="font-size: 10px;">前端工程</a> <a href="/tags/%E5%8E%9F%E5%9E%8B/" style="font-size: 10px;">原型</a> <a href="/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/" style="font-size: 10px;">原型链</a> <a href="/tags/%E5%91%BD%E4%BB%A4/" style="font-size: 10px;">命令</a> <a href="/tags/%E5%BA%93/" style="font-size: 10px;">库</a> <a href="/tags/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F/" style="font-size: 10px;">应用程序</a> <a href="/tags/%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B/" style="font-size: 10px;">技术选型</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 10px;">框架</a> <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/" style="font-size: 10px;">模块化</a> <a href="/tags/%E7%9B%AE%E5%BD%95%E6%80%BB%E7%BA%B2/" style="font-size: 10px;">目录总纲</a> <a href="/tags/%E7%BB%84%E4%BB%B6%E5%8C%96/" style="font-size: 10px;">组件化</a> <a href="/tags/%E8%AF%9E%E7%94%9F/" style="font-size: 10px;">诞生</a> <a href="/tags/%E8%AF%AD%E6%B3%95/" style="font-size: 10px;">语法</a> <a href="/tags/%E9%97%AD%E5%8C%85/" style="font-size: 10px;">闭包</a> <a href="/tags/%E9%9D%A2%E8%AF%95/" style="font-size: 10px;">面试</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/js/search.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/js/animate.js"></script>
+
+
+
+  
+<script src="/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+  </div>
+</body>
+</html>
